@@ -14,10 +14,16 @@ namespace Project.Services
             _connection = connection;
         }
         
-        public List<Mechanic> GetAllMechanics()
+        public List<MechanicModel> GetAllMechanics()
         {
             string query = "SELECT * FROM dbo.Mechanics";
-            return _connection.Query<Mechanic>(query).ToList();
+            return _connection.Query<MechanicModel>(query).ToList();
+        }
+
+        public void AddNewMechanic(MechanicModel model)
+        {
+            string query = $"INSERT INTO dbo.Mechanics (FirstName, Surname, Experience) VALUES ('{model.FirstName}','{model.Surname}',{model.Experience})";
+            _connection.Query<MechanicModel>(query);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Project.Models
 {
-    public class Car
+    public class CarModel
     {
         public int Id { get; set; }
         public int YearManufactured { get; set; }

@@ -21,10 +21,50 @@ namespace Project.Controllers
 
         public IActionResult Index()
         {
-            List<Mechanic> mechanics = _repService.GetAllMechanics();
-            return View(mechanics);
+            return View(_repService.GetAllMechanics());
         }
 
+        public IActionResult DisplayAddNewMechanic()
+        {
+            return View(new MechanicModel());
+        }
+
+        public IActionResult SubmitNewMechanic(MechanicModel model)
+        {
+            try
+            {
+                _repService.AddNewMechanic(model);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("DisplayAddNewMechanic", model);
+            }
+        }
+
+        public IActionResult DeleteMechanic(MechanicModel model)
+        {
+            _repService.DeleteMechanic(model);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DisplayUpdateMechanic(MechanicModel model)
+        {
+            return View(model);
+        }
+
+        public IActionResult SubmitUpdate(MechanicModel model)
+        {
+            try
+            {
+                _repService.UpdateMechanic(model);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("DisplayUpdateMechanic", model);
+            }
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
