@@ -1,0 +1,22 @@
+﻿@model List<Mechanic>
+
+<h2>Our all mechanics</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Surname</th>
+        <th>Experience</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var emp in @Model)
+    {
+        <tr>
+            <td>@emp.Id</td>
+            <td>@emp.FirstName</td>
+            <td>@emp.Surname</td>
+            <td>@emp.Experience</td>
+            <td>@Html.ActionLink("X", "DeleteMechanic", "Home", emp) @Html.ActionLink("Update", "DisplayUpdateMechanic", "Home", emp)</td>
+        </tr>
+    }
+</table>
