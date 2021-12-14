@@ -26,6 +26,10 @@ namespace Project.Controllers
 
         public IActionResult DisplayAddNewMechanic(MechanicModel model = null)
         {
+            if(!string.IsNullOrWhiteSpace(model.FirstName) || !string.IsNullOrWhiteSpace(model.Surname) || model.Experience != 0)
+            {
+                ViewBag.Message = "Name, surname or experience was incorect. Correct errors and submit.";
+            }
             return View(model);
         }
 
@@ -50,6 +54,10 @@ namespace Project.Controllers
 
         public IActionResult DisplayUpdateMechanic(MechanicModel model)
         {
+            if (string.IsNullOrWhiteSpace(model.FirstName) || string.IsNullOrWhiteSpace(model.Surname) || model.Experience < 0)
+            {
+                ViewBag.Message = "Name, surname or experience was incorect. Correct errors and submit.";
+            }
             return View(model);
         }
 
