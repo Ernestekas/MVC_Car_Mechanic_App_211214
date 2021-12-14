@@ -24,9 +24,9 @@ namespace Project.Controllers
             return View(_repService.GetAllMechanics());
         }
 
-        public IActionResult DisplayAddNewMechanic()
+        public IActionResult DisplayAddNewMechanic(MechanicModel model = null)
         {
-            return View(new MechanicModel());
+            return View(model);
         }
 
         public IActionResult SubmitNewMechanic(MechanicModel model)

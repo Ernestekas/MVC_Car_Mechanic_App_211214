@@ -1,0 +1,21 @@
+﻿@model MechanicModel
+
+@using (Html.BeginForm("SubmitUpdate", "Home", FormMethod.Post))
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Experience</th>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(m => m.Id, new {@readonly = "readonly"})</td>
+            <td>@Html.TextBoxFor(m => m.FirstName)</td>
+            <td>@Html.TextBoxFor(m => m.Surname)</td>
+            <td>@Html.TextBoxFor(m => m.Experience, new {@type = "number"})</td>
+        </tr>
+    </table>
+    
+    <input type="submit" value="Update"/>
+}
