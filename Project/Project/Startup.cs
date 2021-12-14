@@ -28,6 +28,7 @@ namespace Project
         {
             services.AddTransient<SqlConnection>(_ => new SqlConnection(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddTransient<RepairshopService>();
+            services.AddTransient<CarsService>();
             services.AddControllersWithViews();
         }
 

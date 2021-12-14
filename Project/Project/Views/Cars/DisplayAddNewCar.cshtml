@@ -1,0 +1,17 @@
+﻿@model CarModel
+
+@using (Html.BeginForm("SubmitNewCar", "Cars", FormMethod.Post))
+{
+    @Html.LabelFor(c => c.YearManufactured)
+    @Html.TextBoxFor(c => c.YearManufactured, new {@type = "number"})
+    <br/>
+    @Html.LabelFor(c => c.Manufacturer)
+    @Html.TextBoxFor(c => c.Manufacturer)
+    <br/>
+    @Html.LabelFor(c => c.PlateNumbers)
+    @Html.TextBoxFor(c => c.PlateNumbers)
+    <br/>
+    @Html.LabelFor(c => c.MechanicId)
+    @Html.TextBoxFor(c => c.MechanicId, new {@type = "number"})
+    <input type = "submit" value = "submit" />
+}

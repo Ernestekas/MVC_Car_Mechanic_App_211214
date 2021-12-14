@@ -1,0 +1,23 @@
+﻿@model CarModel
+
+@using (Html.BeginForm("SubmitUpdate", "Cars", FormMethod.Post))
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Year Manufactured</th>
+            <th>Manufacturer</th>
+            <th>PlateNumbers</th>
+            <th>Mechanic Id</th>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(c => c.Id, new {@readonly = "readonly"})</td>
+            <td>@Html.TextBoxFor(c => c.YearManufactured)</td>
+            <td>@Html.TextBoxFor(c => c.Manufacturer)</td>
+            <td>@Html.TextBoxFor(c => c.PlateNumbers)</td>
+            <td>@Html.TextBoxFor(c => c.MechanicId, new {@type = "number"})</td>
+        </tr>
+    </table>
+    
+    <input type="submit" value="Update"/>
+}

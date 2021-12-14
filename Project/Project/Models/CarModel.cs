@@ -6,7 +6,7 @@ namespace Project.Models
     {
         [DisplayName("Id: ")]
         public int Id { get; set; }
-        [DisplayName("Year: ")]
+        [DisplayName("Year Manufactured: ")]
         public int YearManufactured { get; set; }
         [DisplayName("Manufacturer: ")]
         public string Manufacturer { get; set; }

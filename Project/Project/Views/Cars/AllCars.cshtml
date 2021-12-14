@@ -1,0 +1,25 @@
+﻿@model List<CarModel>
+
+<h2>Our all serviced cars</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Year Manufactured</th>
+        <th>Manufacturer</th>
+        <th>Plate Numbers</th>
+        <th>Mechanic Id</th>
+        <th>Actions</th>
+    </tr>
+    @foreach(var car in @Model)
+    {
+        <tr>
+            <td>@car.Id</td>
+            <td>@car.YearManufactured</td>
+            <td>@car.Manufacturer</td>
+            <td>@car.PlateNumbers</td>
+            <td>@car.MechanicId</td>
+            <td>@Html.ActionLink("X", "DeleteCar", "Cars", car) 
+                @Html.ActionLink("Update", "DisplayUpdateCar", "Cars", car)</td>
+        </tr>
+    }
+</table>
